@@ -16,6 +16,8 @@
 		B3EA750F1C07CE16003DEBD2 /* TemptressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA750E1C07CE16003DEBD2 /* TemptressUITests.swift */; };
 		B3EA75231C081C99003DEBD2 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA75221C081C99003DEBD2 /* WeatherManager.swift */; };
 		B3EA75251C081EBC003DEBD2 /* HomeTempManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA75241C081EBC003DEBD2 /* HomeTempManager.swift */; };
+		B3EA752D1C08BA65003DEBD2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EA752B1C08BA65003DEBD2 /* Fabric.framework */; };
+		B3EA752E1C08BA65003DEBD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EA752C1C08BA65003DEBD2 /* Crashlytics.framework */; };
 		D805224A5FF19DA3F1825F00 /* Pods_Temptress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512FDE5C362FD0C62AE41199 /* Pods_Temptress.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		B3EA75221C081C99003DEBD2 /* WeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		B3EA75241C081EBC003DEBD2 /* HomeTempManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTempManager.swift; sourceTree = "<group>"; };
 		B3EA75271C0828DE003DEBD2 /* Temptress-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Temptress-Bridging-Header.h"; sourceTree = "<group>"; };
+		B3EA752B1C08BA65003DEBD2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Temptress/Fabric.framework; sourceTree = "<group>"; };
+		B3EA752C1C08BA65003DEBD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Temptress/Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D805224A5FF19DA3F1825F00 /* Pods_Temptress.framework in Frameworks */,
+				B3EA752E1C08BA65003DEBD2 /* Crashlytics.framework in Frameworks */,
+				B3EA752D1C08BA65003DEBD2 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +93,8 @@
 		38674FA08932D89B54866F71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3EA752B1C08BA65003DEBD2 /* Fabric.framework */,
+				B3EA752C1C08BA65003DEBD2 /* Crashlytics.framework */,
 				512FDE5C362FD0C62AE41199 /* Pods_Temptress.framework */,
 			);
 			name = Frameworks;
@@ -170,6 +178,7 @@
 				B3EA74E91C07CE15003DEBD2 /* Resources */,
 				6C83B9BBF86D0A26EBAE8C2A /* Embed Pods Frameworks */,
 				4F020EAEF7549717C512E09E /* Copy Pods Resources */,
+				B3EA752A1C08BA33003DEBD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -332,6 +341,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B3EA752A1C08BA33003DEBD2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 8183575e0c0d455e125aa4138e7991e11e819f91 291b752cddcca9f4df4bedd4eb895a80264801cccaa961224ad5bd7840d07fb2";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -486,6 +508,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Temptress",
+				);
 				INFOPLIST_FILE = Temptress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wrightsanson.Temptress;
@@ -501,6 +528,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Temptress",
+				);
 				INFOPLIST_FILE = Temptress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wrightsanson.Temptress;
