@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		B3EA74EF1C07CE15003DEBD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA74EE1C07CE15003DEBD2 /* AppDelegate.swift */; };
-		B3EA74F11C07CE15003DEBD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA74F01C07CE15003DEBD2 /* ViewController.swift */; };
+		B3EA74F11C07CE15003DEBD2 /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA74F01C07CE15003DEBD2 /* TemperatureViewController.swift */; };
 		B3EA74F41C07CE15003DEBD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EA74F21C07CE15003DEBD2 /* Main.storyboard */; };
 		B3EA74F61C07CE15003DEBD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3EA74F51C07CE15003DEBD2 /* Assets.xcassets */; };
 		B3EA74F91C07CE15003DEBD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EA74F71C07CE15003DEBD2 /* LaunchScreen.storyboard */; };
 		B3EA75041C07CE16003DEBD2 /* TemptressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA75031C07CE16003DEBD2 /* TemptressTests.swift */; };
 		B3EA750F1C07CE16003DEBD2 /* TemptressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA750E1C07CE16003DEBD2 /* TemptressUITests.swift */; };
+		B3EA75231C081C99003DEBD2 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA75221C081C99003DEBD2 /* WeatherManager.swift */; };
+		B3EA75251C081EBC003DEBD2 /* HomeTempManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA75241C081EBC003DEBD2 /* HomeTempManager.swift */; };
+		D805224A5FF19DA3F1825F00 /* Pods_Temptress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512FDE5C362FD0C62AE41199 /* Pods_Temptress.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4AC5A91B80F2CD7196D17E79 /* Pods-Temptress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Temptress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Temptress/Pods-Temptress.debug.xcconfig"; sourceTree = "<group>"; };
+		512FDE5C362FD0C62AE41199 /* Pods_Temptress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Temptress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CDF5B35E51D38DA41BFFAE0 /* Pods-Temptress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Temptress.release.xcconfig"; path = "Pods/Target Support Files/Pods-Temptress/Pods-Temptress.release.xcconfig"; sourceTree = "<group>"; };
 		B3EA74EB1C07CE15003DEBD2 /* Temptress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Temptress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3EA74EE1C07CE15003DEBD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3EA74F01C07CE15003DEBD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B3EA74F01C07CE15003DEBD2 /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
 		B3EA74F31C07CE15003DEBD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3EA74F51C07CE15003DEBD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3EA74F81C07CE15003DEBD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +53,9 @@
 		B3EA750A1C07CE16003DEBD2 /* TemptressUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TemptressUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3EA750E1C07CE16003DEBD2 /* TemptressUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemptressUITests.swift; sourceTree = "<group>"; };
 		B3EA75101C07CE16003DEBD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3EA75221C081C99003DEBD2 /* WeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		B3EA75241C081EBC003DEBD2 /* HomeTempManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTempManager.swift; sourceTree = "<group>"; };
+		B3EA75271C0828DE003DEBD2 /* Temptress-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Temptress-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D805224A5FF19DA3F1825F00 /* Pods_Temptress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38674FA08932D89B54866F71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				512FDE5C362FD0C62AE41199 /* Pods_Temptress.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A04FBE87E2B19DFFC7AF41C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4AC5A91B80F2CD7196D17E79 /* Pods-Temptress.debug.xcconfig */,
+				6CDF5B35E51D38DA41BFFAE0 /* Pods-Temptress.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B3EA74E21C07CE15003DEBD2 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +108,8 @@
 				B3EA75021C07CE16003DEBD2 /* TemptressTests */,
 				B3EA750D1C07CE16003DEBD2 /* TemptressUITests */,
 				B3EA74EC1C07CE15003DEBD2 /* Products */,
+				4A04FBE87E2B19DFFC7AF41C /* Pods */,
+				38674FA08932D89B54866F71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +127,14 @@
 			isa = PBXGroup;
 			children = (
 				B3EA74EE1C07CE15003DEBD2 /* AppDelegate.swift */,
-				B3EA74F01C07CE15003DEBD2 /* ViewController.swift */,
+				B3EA74F01C07CE15003DEBD2 /* TemperatureViewController.swift */,
+				B3EA75221C081C99003DEBD2 /* WeatherManager.swift */,
+				B3EA75241C081EBC003DEBD2 /* HomeTempManager.swift */,
 				B3EA74F21C07CE15003DEBD2 /* Main.storyboard */,
 				B3EA74F51C07CE15003DEBD2 /* Assets.xcassets */,
 				B3EA74F71C07CE15003DEBD2 /* LaunchScreen.storyboard */,
 				B3EA74FA1C07CE15003DEBD2 /* Info.plist */,
+				B3EA75271C0828DE003DEBD2 /* Temptress-Bridging-Header.h */,
 			);
 			path = Temptress;
 			sourceTree = "<group>";
@@ -132,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3EA75131C07CE16003DEBD2 /* Build configuration list for PBXNativeTarget "Temptress" */;
 			buildPhases = (
+				7B7DD532FC124A1F98450BD8 /* Check Pods Manifest.lock */,
 				B3EA74E71C07CE15003DEBD2 /* Sources */,
 				B3EA74E81C07CE15003DEBD2 /* Frameworks */,
 				B3EA74E91C07CE15003DEBD2 /* Resources */,
+				6C83B9BBF86D0A26EBAE8C2A /* Embed Pods Frameworks */,
+				4F020EAEF7549717C512E09E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,12 +286,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F020EAEF7549717C512E09E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Temptress/Pods-Temptress-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C83B9BBF86D0A26EBAE8C2A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Temptress/Pods-Temptress-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B7DD532FC124A1F98450BD8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B3EA74E71C07CE15003DEBD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3EA74F11C07CE15003DEBD2 /* ViewController.swift in Sources */,
+				B3EA75251C081EBC003DEBD2 /* HomeTempManager.swift in Sources */,
+				B3EA74F11C07CE15003DEBD2 /* TemperatureViewController.swift in Sources */,
+				B3EA75231C081C99003DEBD2 /* WeatherManager.swift in Sources */,
 				B3EA74EF1C07CE15003DEBD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,23 +482,30 @@
 		};
 		B3EA75141C07CE16003DEBD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AC5A91B80F2CD7196D17E79 /* Pods-Temptress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Temptress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wrightsanson.Temptress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Temptress/Temptress-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		B3EA75151C07CE16003DEBD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CDF5B35E51D38DA41BFFAE0 /* Pods-Temptress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Temptress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wrightsanson.Temptress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Temptress/Temptress-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +576,7 @@
 				B3EA75151C07CE16003DEBD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3EA75161C07CE16003DEBD2 /* Build configuration list for PBXNativeTarget "TemptressTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +585,7 @@
 				B3EA75181C07CE16003DEBD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3EA75191C07CE16003DEBD2 /* Build configuration list for PBXNativeTarget "TemptressUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +594,7 @@
 				B3EA751B1C07CE16003DEBD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
