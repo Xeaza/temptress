@@ -40,12 +40,12 @@ class TemperatureViewController: UIViewController {
     
     func updateAllTemperatures() {
         if !updating {
-            getWeather()
-            getBedroomTemperature()
+            updateWeather()
+            updateBedroomTemperature()
         }
     }
     
-    func getWeather() {
+    func updateWeather() {
         updating = true
         WeatherManager.sharedManager.getWeather { (outsideTemp, currentForcastImageURL) -> Void in
             self.outsideTemperatureLabel.text = "\(outsideTemp)\(self.degreesUnicode)"
@@ -58,7 +58,7 @@ class TemperatureViewController: UIViewController {
         }
     }
     
-    func getBedroomTemperature() {
+    func updateBedroomTemperature() {
         updating = true
         HomeTempManager.sharedManager.getBedroomTemperature { (bedroomTemp, connected) -> Void in
             self.updateTemperatureLabel(bedroomTemp)
