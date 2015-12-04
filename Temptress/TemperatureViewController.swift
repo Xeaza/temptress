@@ -22,7 +22,10 @@ class TemperatureViewController: UIViewController {
     var temperatureTitleLabelTopStartingConstant: CGFloat!
     var updating: Bool = false
     let degreesUnicode = "\u{00B0}F"
-
+    var rooms: [RoomType] = [.Bedroom]
+    var nextRoomTempToShow: RoomType = .Bedroom
+    var indexOfCurrentRoom: Int = 0
+    
     override func viewDidAppear(animated: Bool) {
         updateAllTemperatures()
         timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "changeBackgroundColor", userInfo: nil, repeats: true)
@@ -30,6 +33,7 @@ class TemperatureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rooms = [.Bedroom, .LivingRoom]
         view.backgroundColor = getRandomColor()
         temperatureTitleLabelTopStartingConstant = temperatureTitleLabelTopConstraint.constant
         hideLabels()
@@ -41,7 +45,7 @@ class TemperatureViewController: UIViewController {
     func updateAllTemperatures() {
         if !updating {
             updateWeather()
-            updateBedroomTemperature()
+            updateMainTemperature()
         }
     }
     
@@ -58,10 +62,10 @@ class TemperatureViewController: UIViewController {
         }
     }
     
-    func updateBedroomTemperature() {
+    func updateMainTemperature() {
         updating = true
-        HomeTempManager.sharedManager.getBedroomTemperature { (bedroomTemp, connected) -> Void in
-            self.updateTemperatureLabel(bedroomTemp)
+        HomeTempManager.sharedManager.getRoomTemperature(nextRoomTempToShow) { (temperature, connected) -> Void in
+            self.updateTemperatureLabel(temperature)
             if !connected {
                 self.emergency()
             }
@@ -71,6 +75,8 @@ class TemperatureViewController: UIViewController {
     }
     
     @IBAction func onTapGestureRecognized(sender: AnyObject) {
+        print("tap")
+        setRoomToShowGetTemperatureFor()
         updateAllTemperatures()
     }
     
@@ -84,7 +90,7 @@ class TemperatureViewController: UIViewController {
                 self.temperatureTitleLabel.alpha = 0.0
                 self.view.layoutSubviews()
                 }, completion: { (Bool) -> Void in
-                    self.temperatureTitleLabel.text = "Bedroom".uppercaseString
+                    self.temperatureTitleLabel.text = self.nextRoomTempToShow.rawValue.uppercaseString
                     UIView.animateWithDuration(0.1, animations: { () -> Void in
                         self.temperatureTitleLabel.alpha = 1.0
                     })
@@ -104,6 +110,14 @@ class TemperatureViewController: UIViewController {
                 self.lastUpdatedLabel.alpha = 1.0
             })
         }
+    }
+    
+    func setRoomToShowGetTemperatureFor() {
+        indexOfCurrentRoom++
+        if indexOfCurrentRoom >= rooms.count {
+            indexOfCurrentRoom = 0
+        }
+        nextRoomTempToShow = rooms[indexOfCurrentRoom]
     }
 
     func changeBackgroundColor() {
@@ -129,7 +143,7 @@ class TemperatureViewController: UIViewController {
     
     func emergency() {
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            self.temperatureTitleLabel.text = "Refresh, your spark core might be disconnected..."
+            self.temperatureTitleLabel.text = "Tap to refresh, your spark core might be disconnected..."
         }
     }
     
