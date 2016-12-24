@@ -18,7 +18,7 @@ class TemperatureViewController: UIViewController {
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var temperatureTitleLabelTopConstraint: NSLayoutConstraint!
     
-    var timer: NSTimer!
+    var timer: Timer!
     var temperatureTitleLabelTopStartingConstant: CGFloat!
     var updating: Bool = false
     let degreesUnicode = "\u{00B0}F"
@@ -26,9 +26,9 @@ class TemperatureViewController: UIViewController {
     var nextRoomTempToShow: RoomType = .Bedroom
     var indexOfCurrentRoom: Int = 0
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         updateAllTemperatures()
-        timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "changeBackgroundColor", userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(TemperatureViewController.changeBackgroundColor), userInfo: nil, repeats: true)
     }
     
     override func viewDidLoad() {
@@ -53,8 +53,8 @@ class TemperatureViewController: UIViewController {
         updating = true
         WeatherManager.sharedManager.getWeather { (outsideTemp, currentForcastImageURL) -> Void in
             self.outsideTemperatureLabel.text = "\(outsideTemp)\(self.degreesUnicode)"
-            self.weatherImageView.pin_setImageFromURL(currentForcastImageURL)
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.weatherImageView.pin_setImage(from: currentForcastImageURL as URL!)
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.outsideTemperatureLabel.alpha = 1.0
                 self.outsideTempTitleLabel.alpha = 1.0
                 self.updating = false
@@ -74,23 +74,23 @@ class TemperatureViewController: UIViewController {
         }
     }
     
-    @IBAction func onTapGestureRecognized(sender: AnyObject) {
+    @IBAction func onTapGestureRecognized(_ sender: AnyObject) {
         setRoomToShowGetTemperatureFor()
         updateAllTemperatures()
     }
     
-    func updateTemperatureLabel(temperature: Double) {
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+    func updateTemperatureLabel(_ temperature: Double) {
+        DispatchQueue.main.async { () -> Void in
             self.temperatureLabel.text = String(Int(round(temperature)))
             self.temperatureTitleLabelTopConstraint.constant = self.temperatureTitleLabelTopStartingConstant
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.temperatureLabel.alpha = 1.0
                 self.degreeLabel.alpha = 1.0
                 self.temperatureTitleLabel.alpha = 0.0
                 self.view.layoutSubviews()
                 }, completion: { (Bool) -> Void in
-                    self.temperatureTitleLabel.text = self.nextRoomTempToShow.rawValue.uppercaseString
-                    UIView.animateWithDuration(0.1, animations: { () -> Void in
+                    self.temperatureTitleLabel.text = self.nextRoomTempToShow.rawValue.uppercased()
+                    UIView.animate(withDuration: 0.1, animations: { () -> Void in
                         self.temperatureTitleLabel.alpha = 1.0
                     })
             })
@@ -98,21 +98,21 @@ class TemperatureViewController: UIViewController {
     }
     
     func updateLastUpdatedLabel() {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' h:mm a" // superset of OP's format
-        let currentDateTime = "Last updated: \(dateFormatter.stringFromDate(NSDate()))"
+        let currentDateTime = "Last updated: \(dateFormatter.string(from: Date()))"
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.async { () -> Void in
             self.lastUpdatedLabel.alpha = 0.0
             self.lastUpdatedLabel.text = currentDateTime
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.lastUpdatedLabel.alpha = 1.0
             })
         }
     }
     
     func setRoomToShowGetTemperatureFor() {
-        indexOfCurrentRoom++
+        indexOfCurrentRoom += 1
         if indexOfCurrentRoom >= rooms.count {
             indexOfCurrentRoom = 0
         }
@@ -120,9 +120,9 @@ class TemperatureViewController: UIViewController {
     }
 
     func changeBackgroundColor() {
-        UIView.animateWithDuration(2.0) { () -> Void in
+        UIView.animate(withDuration: 2.0, animations: { () -> Void in
             self.view.backgroundColor = self.getRandomColor()
-        }
+        }) 
     }
     
     func getRandomColor() -> UIColor {
@@ -141,13 +141,13 @@ class TemperatureViewController: UIViewController {
     }
     
     func emergency() {
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.async { () -> Void in
             self.temperatureTitleLabel.text = "Tap to refresh, your spark core might be disconnected..."
         }
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     override func didReceiveMemoryWarning() {

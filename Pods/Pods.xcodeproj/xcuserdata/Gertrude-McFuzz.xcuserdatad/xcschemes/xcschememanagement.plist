@@ -29,30 +29,50 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-TemptressTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-TemptressUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<key>27F5B8A3E5AF54776C175E7C0D3677DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>75E8652E4799156C6A73660527C66D41</key>
+		<key>66047D1A03BBE65F786FEA4CBACE0BEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AB92A2AE7314091D107EAC8561B8977</key>
+		<key>83B5B60C676A8D31829A6AE91CE86A75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6953B7020C7CDCE5D4DC585889C82F9</key>
+		<key>9947E068949003AC8B819BF337F405BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE113CEF81C16AA59EC049ACE130BCB2</key>
+		<key>DA9F676676677E9C5FC0DDF2CE506B8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0E6EB176536BC32D64B7D7F91BA5263</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA82564287A8DDE466C7A4893107E2B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,7 +14,7 @@ class WeatherManager: NSObject {
     static let sharedManager = WeatherManager()
     let wilmingtonWeatherURLString = "http://api.wunderground.com/api/6b968bf62b0b808b/conditions/q/NY/Wilmington.json"
     
-    func getWeather(completion: (outsideTemp: Float, currentForcastImageURL: NSURL) -> Void) {
+    func getWeather(_ completion: @escaping (_ outsideTemp: Float, _ currentForcastImageURL: URL) -> Void) {
         Alamofire.request(.GET, wilmingtonWeatherURLString).responseJSON { response in
             if let JSON = response.result.value {
                 if let currentObservation = JSON["current_observation"] as? [String : AnyObject] {

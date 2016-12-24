@@ -17,7 +17,7 @@ enum RoomType: String {
 class HomeTempManager: NSObject {
     static let sharedManager = HomeTempManager()
     
-    func getRoomTemperature(room: RoomType, completion: (temperature: Double, connected: Bool) -> Void) {
+    func getRoomTemperature(_ room: RoomType, completion: @escaping (_ temperature: Double, _ connected: Bool) -> Void) {
         Alamofire.request(.GET, getRoomTemperatureURLString(room)).responseJSON { response in
             if let JSON = response.result.value {
                 var connected = true
@@ -34,7 +34,7 @@ class HomeTempManager: NSObject {
         }
     }
     
-    func getRoomTemperatureURLString(room: RoomType) -> String {
+    func getRoomTemperatureURLString(_ room: RoomType) -> String {
         var roomTempMonitorID: String!
         switch room {
         case .Bedroom:
