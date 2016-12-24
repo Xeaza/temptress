@@ -9,21 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FLAnimatedImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>PINCache.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>PINRemoteImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Temptress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,25 +24,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>27F5B8A3E5AF54776C175E7C0D3677DF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>66047D1A03BBE65F786FEA4CBACE0BEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83B5B60C676A8D31829A6AE91CE86A75</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9947E068949003AC8B819BF337F405BB</key>
+		<key>CB374D3533C8B17C2ACE521D386C7055</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E0E6EB176536BC32D64B7D7F91BA5263</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA82564287A8DDE466C7A4893107E2B2</key>
+		<key>F350B7245EA06EB793BBF4A03D1FE4F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

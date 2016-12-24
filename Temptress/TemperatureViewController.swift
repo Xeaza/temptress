@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class TemperatureViewController: UIViewController {
     @IBOutlet weak var lastUpdatedLabel: UILabel!
@@ -53,7 +54,8 @@ class TemperatureViewController: UIViewController {
         updating = true
         WeatherManager.sharedManager.getWeather { (outsideTemp, currentForcastImageURL) -> Void in
             self.outsideTemperatureLabel.text = "\(outsideTemp)\(self.degreesUnicode)"
-            self.weatherImageView.pin_setImage(from: currentForcastImageURL as URL!)
+            self.weatherImageView.sd_setImage(with: currentForcastImageURL)
+
             UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.outsideTemperatureLabel.alpha = 1.0
                 self.outsideTempTitleLabel.alpha = 1.0

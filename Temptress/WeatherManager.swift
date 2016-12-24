@@ -15,16 +15,17 @@ class WeatherManager: NSObject {
     let wilmingtonWeatherURLString = "http://api.wunderground.com/api/6b968bf62b0b808b/conditions/q/NY/Wilmington.json"
     
     func getWeather(_ completion: @escaping (_ outsideTemp: Float, _ currentForcastImageURL: URL) -> Void) {
-        Alamofire.request(.GET, wilmingtonWeatherURLString).responseJSON { response in
-            if let JSON = response.result.value {
-                if let currentObservation = JSON["current_observation"] as? [String : AnyObject] {
+        Alamofire.request(wilmingtonWeatherURLString).responseJSON { response in
+            if let JSON = response.result.value as? [String : AnyObject] {
+                if let currentObservation = JSON["current_observation"] {
                     let outsideTemp = currentObservation["temp_f"] as! Float
                     let currentForcastImageURLString = currentObservation["icon_url"] as! String
-                    let currentForcastImageURLStringIconSetI = currentForcastImageURLString.stringByReplacingOccurrencesOfString("/k/", withString: "/i/", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    let currentForcastImageURLStringIconSetI = currentForcastImageURLString.replacingOccurrences(of: "/k/", with: "/i/", options: NSString.CompareOptions.literal, range: nil)
 
-                    completion(outsideTemp: outsideTemp, currentForcastImageURL: NSURL(string: currentForcastImageURLStringIconSetI)!)
+                    completion(outsideTemp, URL(string: currentForcastImageURLStringIconSetI)!)
                 }
             }
+
         }
     }
 }
