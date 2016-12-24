@@ -75,7 +75,6 @@ class TemperatureViewController: UIViewController {
     }
     
     @IBAction func onTapGestureRecognized(sender: AnyObject) {
-        print("tap")
         setRoomToShowGetTemperatureFor()
         updateAllTemperatures()
     }
